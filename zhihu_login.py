@@ -28,6 +28,9 @@ dom = etree.HTML(element.content.decode('utf-8'))#
 _xsrf = dom.xpath('//input/@value')[0]
 captcha_lang = dom.xpath('/html/body/div[1]/div/div[2]/div[2]/form/div[1]/div[3]/@data-type')
 
+username = ''
+password = ''
+
 def getxsrf():
 	'''get _xsrf for zhihu login
 	'''
@@ -91,9 +94,9 @@ def login():
 	post_url = 'https://www.zhihu.com/login/phone_num'
 	postdata = {
 	'_xsrf': _xsrf,
-	'password':'WangSenFirst01',
+	'password':password,
 	'remember_me': 'true',
-	'phone_num':'15267007868',
+	'phone_num': username,
 	}
 	
 	try:
